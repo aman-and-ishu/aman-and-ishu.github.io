@@ -1,0 +1,371 @@
+/* ==========================================================================
+   1-PAGE SMARTPHONE PDF INVITATION CARD (5.625in x 10in / 9:16 Portrait)
+   Theme: Imperial Wedgewood Slate-Porcelain, Florentine Alabaster & 24K Brass
+   ========================================================================== */
+
+@page {
+  size: 5.625in 10in;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 540px;
+  height: 960px;
+  overflow: hidden;
+  font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
+  background: #15283b;
+  color: #142433;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pdf-mat {
+  width: 540px;
+  height: 960px;
+  padding: 14px;
+  background: linear-gradient(160deg, #132537 0%, #1e3851 50%, #142638 100%);
+  display: flex;
+}
+
+.alabaster-sheet {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  background-color: #faf8f2;
+  background-image:
+    radial-gradient(ellipse 85% 45% at 50% 0%, rgba(217, 232, 245, 0.52), transparent 68%),
+    radial-gradient(ellipse 80% 45% at 50% 100%, rgba(224, 236, 229, 0.45), transparent 68%);
+  border: 2px solid #c2963d;
+  padding: 18px 20px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.alabaster-sheet::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border-radius: 13px;
+  border: 1px solid rgba(194, 150, 61, 0.42);
+  pointer-events: none;
+}
+
+/* Corner Ornaments */
+.brass-corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  color: #b58932;
+  pointer-events: none;
+}
+.bc-tl { top: 11px; left: 11px; }
+.bc-tr { top: 11px; right: 11px; transform: scaleX(-1); }
+.bc-bl { bottom: 11px; left: 11px; transform: scaleY(-1); }
+.bc-br { bottom: 11px; right: 11px; transform: scale(-1, -1); }
+
+/* 1. Header */
+.card-top {
+  width: 100%;
+}
+
+.top-invocation-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+
+.hindi-line {
+  font-family: "Tiro Devanagari Hindi", serif;
+  font-size: 11.5px;
+  color: #8f6424;
+}
+
+.dot-sep {
+  color: #b58932;
+  font-size: 11px;
+}
+
+.epigraph-line {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 12.5px;
+  color: #394d5f;
+}
+
+.invite-kicker {
+  margin: 0 0 2px;
+  font-size: 8.6px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #566b7d;
+}
+
+.occasion-heading {
+  margin: 0;
+  font-family: "Bodoni Moda", "Cormorant Garamond", Georgia, serif;
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #172b3f;
+  line-height: 1.15;
+}
+
+/* 2. Jharokha Caricature Portrait */
+.portrait-jharokha {
+  position: relative;
+  padding: 6px;
+  border-radius: 120px 120px 14px 14px;
+  background: linear-gradient(160deg, #172b3f 0%, #243f59 100%);
+  border: 1.5px solid #c2963d;
+  box-shadow: 0 12px 26px -10px rgba(20, 36, 51, 0.28);
+}
+
+.portrait-jharokha-inner {
+  width: 206px;
+  height: 266px;
+  border-radius: 114px 114px 10px 10px;
+  overflow: hidden;
+  background: #faf8f2;
+  border: 1px solid rgba(228, 202, 143, 0.72);
+}
+
+.portrait-jharokha-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.wax-coin-seal {
+  position: absolute;
+  right: -10px;
+  bottom: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f6e1af 0%, #c2963d 62%, #875d1d 100%);
+  border: 1.5px solid #fff7e2;
+  color: #142433;
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 14px rgba(15, 28, 42, 0.3);
+}
+
+/* 3. Couple & Parentage */
+.couple-section {
+  width: 100%;
+}
+
+.couple-display {
+  margin: 0 0 6px;
+  font-family: "Bodoni Moda", "Cormorant Garamond", Georgia, serif;
+  font-size: 31px;
+  font-weight: 600;
+  line-height: 1.06;
+  color: #172b3f;
+}
+
+.couple-display span {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: #b58932;
+}
+
+.lineage-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-top: 1px solid rgba(194, 150, 61, 0.34);
+  border-bottom: 1px solid rgba(194, 150, 61, 0.34);
+}
+
+.lineage-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.person-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #172b3f;
+}
+
+.parents-copy {
+  font-size: 10px;
+  line-height: 1.35;
+  color: #394d5f;
+}
+
+.rings-emblem {
+  color: #b58932;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 4. Event Triptych & Venue Address */
+.event-ledger {
+  width: 100%;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(194, 150, 61, 0.52);
+  overflow: hidden;
+}
+
+.event-triptych-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid rgba(194, 150, 61, 0.32);
+  background: linear-gradient(180deg, rgba(236, 243, 248, 0.65) 0%, rgba(255, 254, 250, 0.9) 100%);
+}
+
+.triptych-col {
+  padding: 7px 6px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(194, 150, 61, 0.28);
+}
+
+.triptych-col:last-child {
+  border-right: none;
+}
+
+.t-label {
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8f6424;
+}
+
+.t-val {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #172b3f;
+  line-height: 1.18;
+}
+
+.t-sub {
+  font-size: 8.8px;
+  color: #566b7d;
+}
+
+.venue-address-box {
+  padding: 7px 12px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.venue-map-anchor {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 9.6px;
+  font-weight: 600;
+  color: #172b3f;
+  line-height: 1.32;
+}
+
+.venue-map-anchor svg {
+  color: #9e7127;
+  flex-shrink: 0;
+}
+
+.metro-hint {
+  font-size: 8.5px;
+  color: #3e6552;
+  font-weight: 600;
+}
+
+/* 5. Clickable CTA Button */
+.cta-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.imperial-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 22px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #172b3f 0%, #243e56 100%);
+  border: 1.2px solid #d9b66c;
+  color: #faf6ee;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.imperial-cta-btn svg {
+  color: #e4ca8f;
+}
+
+.cta-caption {
+  margin: 0;
+  font-size: 8.5px;
+  color: #5d7183;
+}
+
+/* 6. RSVP Footer */
+.card-rsvp-footer {
+  width: 100%;
+  padding-top: 6px;
+  border-top: 1px solid rgba(194, 150, 61, 0.34);
+  font-size: 9.4px;
+  line-height: 1.45;
+  color: #394d5f;
+}
+
+.rsvp-line strong {
+  color: #172b3f;
+}
+
+.rsvp-line a {
+  font-weight: 600;
+  color: #172b3f;
+}
+
+.compliments-line {
+  font-size: 8.6px;
+  color: #5d7183;
+}

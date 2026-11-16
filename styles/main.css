@@ -1,0 +1,1574 @@
+/* ==========================================================================
+   MAIN STYLESHEET — AMAN & ISHU ENGAGEMENT CEREMONY SUITE
+   Theme: "The Royal Conservatory Morning Edition"
+   Palette: Florentine Alabaster, Imperial Wedgewood Slate-Porcelain,
+            Botanical Sage-Olive & Burnished 24K Antique Brass
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-primary);
+  background-color: var(--bg-alabaster);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 15% 0%, rgba(214, 230, 244, 0.55), transparent 68%),
+    radial-gradient(ellipse 75% 48% at 88% 12%, rgba(224, 236, 228, 0.5), transparent 65%),
+    radial-gradient(ellipse 80% 55% at 50% 100%, rgba(235, 226, 204, 0.42), transparent 70%);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.gate-locked {
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brass-primary);
+  outline-offset: 3px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.35rem;
+}
+
+/* Ambient Sunlit Jasmine & 24K Gold Mote Canvas */
+#jasmine-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 45;
+}
+
+/* ==========================================================================
+   1. SIGNATURE 3D LINEN ENVELOPE & 24K GOLD WAX SEAL GATE (#wax-seal-gate)
+   ========================================================================== */
+.wax-seal-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background-color: #f5f2e9;
+  background-image:
+    radial-gradient(circle at 22% 18%, rgba(213, 229, 242, 0.72), transparent 52%),
+    radial-gradient(circle at 80% 82%, rgba(219, 232, 223, 0.68), transparent 54%),
+    linear-gradient(165deg, #fbfaf5 0%, #f1ede2 52%, #ebe7da 100%);
+  transition: opacity 0.9s var(--ease-couture), visibility 0.9s var(--ease-couture);
+}
+
+.gate-sunbeam {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    transparent 20%,
+    rgba(255, 252, 240, 0.65) 42%,
+    transparent 64%
+  );
+  pointer-events: none;
+}
+
+.wax-seal-gate.is-fading {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.wax-seal-gate.is-gone {
+  display: none !important;
+}
+
+.gate-stationery-mat {
+  position: relative;
+  width: 100%;
+  max-width: 510px;
+  text-align: center;
+  padding: 2.1rem 1.6rem 1.9rem;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 254, 250, 0.86);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--rule-brass-strong);
+  box-shadow: 0 32px 76px -20px rgba(20, 36, 51, 0.2);
+}
+
+.gate-stationery-mat::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 20px;
+  border: 1px solid rgba(194, 150, 61, 0.24);
+  pointer-events: none;
+}
+
+.gate-invocation {
+  font-family: var(--font-hindi);
+  font-size: 1rem;
+  color: var(--brass-deep);
+  margin: 0 0 0.25rem;
+  letter-spacing: 0.04em;
+}
+
+.gate-epigraph {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink-secondary);
+  margin: 0 0 1.25rem;
+}
+
+/* 3D Couture Envelope Stage */
+.envelope-stage {
+  perspective: 1400px;
+  width: min(326px, 84vw);
+  height: 214px;
+  margin: 0 auto 1.25rem;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.envelope-3d {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s var(--ease-couture);
+}
+
+.envelope-stage:hover .envelope-3d {
+  transform: translateY(-4px);
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #132436 0%, #1b3248 100%);
+  box-shadow: var(--shadow-envelope);
+  border: 1px solid rgba(228, 202, 143, 0.35);
+}
+
+/* Rising Deckle-Edge Letterpress Card Inside Envelope */
+.envelope-letter-card {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 16px;
+  bottom: 18px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fffefa 0%, #f7f3e8 100%);
+  border: 1px solid rgba(194, 150, 61, 0.55);
+  box-shadow: 0 10px 26px rgba(10, 20, 32, 0.24);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem;
+  z-index: 2;
+  transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.32s;
+}
+
+.envelope-letter-card::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(194, 150, 61, 0.28);
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+.letter-kicker {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass-deep);
+  margin-bottom: 0.25rem;
+}
+
+.letter-couple {
+  font-family: var(--font-editorial);
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--royal-slate);
+  line-height: 1.15;
+  margin-bottom: 0.25rem;
+}
+
+.letter-date {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+}
+
+/* Envelope Side & Front Linen Folds */
+.envelope-pocket-sides {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: 12px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.envelope-pocket-sides::before,
+.envelope-pocket-sides::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 55%;
+  background: linear-gradient(145deg, #213b54 0%, #182d42 100%);
+}
+
+.envelope-pocket-sides::before {
+  left: 0;
+  clip-path: polygon(0 0, 100% 52%, 0 100%);
+  border-right: 1px solid rgba(228, 202, 143, 0.2);
+}
+
+.envelope-pocket-sides::after {
+  right: 0;
+  clip-path: polygon(100% 0, 0 52%, 100% 100%);
+}
+
+.envelope-pocket-front {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  border-radius: 12px;
+  overflow: hidden;
+  pointer-events: none;
+  background: linear-gradient(180deg, #26435e 0%, #172b3f 100%);
+  clip-path: polygon(0 100%, 50% 44%, 100% 100%);
+  box-shadow: 0 -4px 14px rgba(8, 18, 28, 0.28);
+}
+
+.pocket-foil-line {
+  position: absolute;
+  inset: 0;
+  border-bottom: 2px solid rgba(228, 202, 143, 0.48);
+}
+
+/* Hinged Top Pointed Linen Flap */
+.envelope-top-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 62%;
+  z-index: 5;
+  transform-origin: top center;
+  transform: rotateX(0deg);
+  transition: transform 0.82s cubic-bezier(0.32, 0.08, 0.22, 1);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: linear-gradient(180deg, #2a4966 0%, #1d354c 100%);
+  filter: drop-shadow(0 8px 12px rgba(10, 20, 32, 0.35));
+}
+
+.flap-inner-trim {
+  position: absolute;
+  inset: 3px;
+  clip-path: polygon(2% 0, 98% 0, 50% 95%);
+  border-top: 1px solid rgba(228, 202, 143, 0.42);
+}
+
+/* 3D Hand-Stamped 24K Gold Wax Seal */
+.wax-seal-medallion {
+  position: absolute;
+  left: 50%;
+  top: 56%;
+  width: 82px;
+  height: 82px;
+  transform: translate(-50%, -50%);
+  z-index: 7;
+  filter: drop-shadow(0 10px 18px rgba(12, 22, 34, 0.48));
+  transition: transform 0.55s var(--ease-seal), opacity 0.5s ease;
+}
+
+.envelope-stage:hover .wax-seal-medallion {
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+.wax-seal-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Unsealing Choreography */
+.wax-seal-gate.is-unsealing .wax-seal-medallion {
+  transform: translate(-50%, -68%) scale(1.22) rotate(8deg);
+  opacity: 0;
+}
+
+.wax-seal-gate.is-unsealing .envelope-top-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.wax-seal-gate.is-unsealing .envelope-letter-card {
+  transform: translateY(-76px) scale(1.03);
+  z-index: 6;
+}
+
+.gate-couple-title {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.85rem, 5.2vw, 2.35rem);
+  font-weight: 600;
+  color: var(--royal-slate);
+  margin: 0 0 0.2rem;
+  line-height: 1.15;
+}
+
+.gate-event-sub {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 1.15rem;
+}
+
+.gate-unseal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.88rem 1.65rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(228, 202, 143, 0.65);
+  background: linear-gradient(135deg, var(--royal-slate) 0%, var(--royal-slate-mid) 100%);
+  color: var(--ink-on-slate);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 14px 32px -10px rgba(23, 43, 63, 0.45);
+  transition: transform 0.25s var(--ease-couture), box-shadow 0.25s var(--ease-couture);
+}
+
+.gate-unseal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px -10px rgba(23, 43, 63, 0.56);
+}
+
+.gate-unseal-btn svg {
+  color: var(--brass-bright);
+}
+
+.gate-caption {
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  margin: 0.7rem 0 0;
+}
+
+/* ==========================================================================
+   2. FLOATING ARCHITECTURAL PILL NAVIGATION
+   ========================================================================== */
+.floating-header {
+  position: sticky;
+  top: 0.75rem;
+  z-index: 60;
+  padding: 0 0.9rem;
+  margin-top: 0.75rem;
+}
+
+.pill-navbar {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0.55rem 0.75rem 0.55rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 254, 250, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--rule-brass-strong);
+  box-shadow: 0 14px 36px -16px rgba(20, 36, 51, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.crest-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.68rem;
+}
+
+.crest-coin {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--royal-slate) 0%, var(--royal-slate-mid) 100%);
+  border: 1.5px solid var(--brass-primary);
+  color: var(--brass-bright);
+  font-family: var(--font-editorial);
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.crest-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.18;
+}
+
+.crest-names {
+  font-family: var(--font-editorial);
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--royal-slate);
+}
+
+.crest-meta {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.pill-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.nav-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.44rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  border: 1px solid transparent;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-chip:hover {
+  background: var(--bg-porcelain-wash);
+  border-color: var(--rule-brass);
+  color: var(--royal-slate);
+}
+
+.melody-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.46rem 0.92rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--rule-brass-strong);
+  background: var(--bg-tussar);
+  color: var(--royal-slate);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.melody-pill-btn.is-playing {
+  background: var(--royal-slate);
+  color: var(--ink-on-slate);
+  border-color: var(--brass-primary);
+}
+
+.eq-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+
+.eq-bars span {
+  width: 2.2px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--brass-primary);
+  transition: height 0.2s ease;
+}
+
+.melody-pill-btn.is-playing .eq-bars span:nth-child(1) {
+  animation: eqPulse 0.85s ease-in-out infinite;
+}
+.melody-pill-btn.is-playing .eq-bars span:nth-child(2) {
+  animation: eqPulse 0.65s ease-in-out 0.15s infinite;
+}
+.melody-pill-btn.is-playing .eq-bars span:nth-child(3) {
+  animation: eqPulse 0.95s ease-in-out 0.3s infinite;
+}
+
+@keyframes eqPulse {
+  0%, 100% { height: 4px; }
+  50% { height: 12px; }
+}
+
+/* ==========================================================================
+   3. CHAPTER 1: EDITORIAL PROCLAMATION & ROYAL JHAROKHA PORTRAIT
+   ========================================================================== */
+.hero-conservatory {
+  padding: 2.3rem 0 4.5rem;
+}
+
+.invocation-crest-bar {
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+
+.invocation-devanagari {
+  font-family: var(--font-hindi);
+  font-size: 1.08rem;
+  color: var(--brass-deep);
+  margin: 0 0 0.25rem;
+  letter-spacing: 0.05em;
+}
+
+.invocation-epigraph {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--ink-secondary);
+  margin: 0;
+}
+
+.hero-editorial-spread {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 3.2rem;
+  align-items: center;
+}
+
+.occasion-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.38rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-porcelain-wash);
+  border: 1px solid var(--rule-brass);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--royal-slate-soft);
+  margin-bottom: 1.1rem;
+}
+
+.occasion-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brass-primary);
+}
+
+.couple-monumental-title {
+  font-family: var(--font-editorial);
+  font-weight: 600;
+  font-size: clamp(3rem, 6.2vw, 4.75rem);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  color: var(--royal-slate);
+  margin: 0 0 1.15rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.32em;
+}
+
+.ampersand-crest {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.82em;
+  color: var(--brass-primary);
+}
+
+.hero-proclamation {
+  font-size: 1.06rem;
+  line-height: 1.75;
+  color: var(--ink-secondary);
+  margin: 0 0 1.75rem;
+  max-width: 560px;
+}
+
+.hero-proclamation strong {
+  color: var(--royal-slate);
+  font-weight: 600;
+}
+
+/* 3-Column Brass-Divided Architectural Triptych */
+.datum-triptych {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--surface-card);
+  border: 1px solid var(--rule-brass-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-elevated);
+  margin-bottom: 1.85rem;
+  overflow: hidden;
+}
+
+.datum-cell {
+  padding: 1rem 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  border-right: 1px solid var(--rule-brass);
+}
+
+.datum-cell:last-child {
+  border-right: none;
+}
+
+.datum-eyebrow {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass-deep);
+}
+
+.datum-main {
+  font-family: var(--font-display);
+  font-size: 1.32rem;
+  font-weight: 700;
+  color: var(--royal-slate);
+  line-height: 1.2;
+}
+
+.datum-sub {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+/* Buttons */
+.hero-action-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.btn-imperial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.88rem 1.5rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--royal-slate) 0%, var(--royal-slate-mid) 100%);
+  color: var(--ink-on-slate);
+  border: 1px solid rgba(228, 202, 143, 0.55);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  box-shadow: 0 14px 30px -12px rgba(23, 43, 63, 0.42);
+  cursor: pointer;
+  transition: transform 0.22s var(--ease-couture), box-shadow 0.22s var(--ease-couture);
+}
+
+.btn-imperial:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px -12px rgba(23, 43, 63, 0.52);
+}
+
+.btn-imperial svg {
+  color: var(--brass-bright);
+}
+
+.btn-brass-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.88rem 1.4rem;
+  border-radius: var(--radius-pill);
+  background: var(--surface-pure);
+  color: var(--royal-slate);
+  border: 1px solid var(--rule-brass-strong);
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.22s ease, transform 0.22s var(--ease-couture);
+}
+
+.btn-brass-outline:hover {
+  background: var(--bg-porcelain-wash);
+  transform: translateY(-2px);
+}
+
+.btn-brass-outline svg {
+  color: var(--brass-deep);
+}
+
+/* Right Column: Royal Jharokha Caricature Pavilion */
+.jharokha-showcase {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jharokha-outer-frame {
+  position: relative;
+  width: 100%;
+  max-width: 445px;
+  padding: 14px;
+  border-radius: 230px 230px 24px 24px;
+  background: linear-gradient(160deg, var(--royal-slate) 0%, var(--royal-slate-mid) 52%, #193147 100%);
+  border: 1.5px solid var(--brass-primary);
+  box-shadow: var(--shadow-jharokha);
+  transition: transform 0.35s var(--ease-couture);
+}
+
+.jharokha-outer-frame::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border-radius: 222px 222px 18px 18px;
+  border: 1px solid rgba(228, 202, 143, 0.45);
+  pointer-events: none;
+}
+
+.jharokha-arch-window {
+  border-radius: 216px 216px 14px 14px;
+  overflow: hidden;
+  background: var(--bg-alabaster);
+  border: 1.5px solid rgba(228, 202, 143, 0.65);
+}
+
+.jharokha-arch-window img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.jharokha-corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--brass-bright);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.jc-tl { bottom: 14px; left: 14px; border-width: 0 0 1.5px 1.5px; border-bottom-left-radius: 6px; }
+.jc-br { bottom: 14px; right: 14px; border-width: 0 1.5px 1.5px 0; border-bottom-right-radius: 6px; }
+.jc-tr, .jc-bl { display: none; }
+
+.jharokha-stamp-badge {
+  position: absolute;
+  right: -12px;
+  bottom: 26px;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f5dfab 0%, #c6983e 58%, #8b6220 100%);
+  border: 2px solid #fff6df;
+  box-shadow: 0 14px 28px rgba(15, 28, 42, 0.34);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #142433;
+  line-height: 1.05;
+}
+
+.stamp-top,
+.stamp-bot {
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.stamp-mid {
+  font-family: var(--font-editorial);
+  font-size: 0.98rem;
+  font-weight: 700;
+  margin: 2px 0;
+}
+
+.jharokha-caption {
+  margin-top: 0.95rem;
+  padding: 0.35rem 1.05rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-tussar);
+  border: 1px solid var(--rule-brass);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+}
+
+/* ==========================================================================
+   4. SHARED SECTION HEADINGS & SCROLL REVEAL
+   ========================================================================== */
+.section {
+  padding: 4.5rem 0;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s var(--ease-couture), transform 0.8s var(--ease-couture);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-heading-block {
+  text-align: center;
+  max-width: 660px;
+  margin: 0 auto 2.8rem;
+}
+
+.eyebrow-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brass-deep);
+  margin: 0 0 0.5rem;
+}
+
+.section-display-title {
+  font-family: var(--font-editorial);
+  font-size: clamp(2rem, 4.2vw, 2.85rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--royal-slate);
+  margin: 0 0 0.75rem;
+}
+
+.section-lead {
+  font-size: 1rem;
+  color: var(--ink-secondary);
+  margin: 0;
+}
+
+.brass-ornament-rule {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--brass-primary);
+  margin-top: 0.35rem;
+}
+
+.brass-ornament-rule span {
+  width: 56px;
+  height: 1px;
+  background: var(--rule-brass-strong);
+}
+
+/* ==========================================================================
+   5. CHAPTER 2: ROYAL FAMILY LINEAGE DIPTYCH
+   ========================================================================== */
+.lineage-section {
+  background: linear-gradient(180deg, rgba(236, 243, 248, 0.45) 0%, rgba(236, 243, 239, 0.38) 100%);
+  border-top: 1px solid var(--rule-brass);
+  border-bottom: 1px solid var(--rule-brass);
+}
+
+.lineage-diptych {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.75rem;
+  align-items: center;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.lineage-crest-card {
+  position: relative;
+  text-align: center;
+  padding: 2.35rem 1.75rem 2rem;
+  border-radius: var(--radius-lg);
+  background: var(--surface-pure);
+  border: 1px solid var(--rule-brass-strong);
+  box-shadow: var(--shadow-elevated);
+}
+
+.lineage-crest-card::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 19px;
+  border: 1px solid rgba(194, 150, 61, 0.22);
+  pointer-events: none;
+}
+
+.crest-role-badge {
+  display: inline-block;
+  padding: 0.28rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-porcelain-wash);
+  color: var(--royal-slate-soft);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+}
+
+.crest-person-name {
+  font-family: var(--font-editorial);
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: var(--royal-slate);
+  margin: 0 0 0.35rem;
+  line-height: 1.12;
+}
+
+.crest-relation-label {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink-muted);
+  margin: 0 0 0.25rem;
+}
+
+.crest-parents-names {
+  font-family: var(--font-display);
+  font-size: 1.32rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+  line-height: 1.4;
+  margin: 0 0 1.1rem;
+}
+
+.crest-parents-names span {
+  color: var(--brass-primary);
+  font-style: italic;
+}
+
+.crest-family-house {
+  display: inline-block;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--rule-brass);
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--botanical-sage);
+}
+
+.diptych-knot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.knot-medallion {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--royal-slate) 0%, var(--royal-slate-mid) 100%);
+  border: 1.5px solid var(--brass-primary);
+  color: var(--brass-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 30px -10px rgba(23, 43, 63, 0.35);
+}
+
+/* ==========================================================================
+   6. CHAPTER 3: IMPERIAL SLATE HOROLOGY COUNTDOWN PAVILION
+   ========================================================================== */
+.countdown-wrapper {
+  padding: 4.2rem 0 1.5rem;
+}
+
+.imperial-horology-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: 2.8rem 2.6rem;
+  background: linear-gradient(135deg, #142638 0%, #1d364f 55%, #162b40 100%);
+  color: var(--ink-on-slate);
+  border: 1.5px solid var(--brass-primary);
+  box-shadow: 0 28px 68px -20px rgba(18, 34, 50, 0.42);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.4rem;
+  align-items: center;
+}
+
+.imperial-horology-card::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border-radius: 19px;
+  border: 1px solid rgba(228, 202, 143, 0.25);
+  pointer-events: none;
+}
+
+.eyebrow-gold {
+  color: var(--brass-bright);
+}
+
+.horology-title {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.85rem, 3.6vw, 2.45rem);
+  font-weight: 600;
+  margin: 0 0 0.65rem;
+  color: #fffdf7;
+  line-height: 1.15;
+}
+
+.horology-desc {
+  color: var(--ink-on-slate-muted);
+  font-size: 0.96rem;
+  margin: 0 0 1.5rem;
+  max-width: 500px;
+}
+
+.horology-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn-gold-solid {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.35rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid #f7e4b4;
+  background: linear-gradient(135deg, #e5ca8c 0%, #c2963d 100%);
+  color: #132333;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-gold-solid:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.btn-ivory-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.3rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(228, 202, 143, 0.5);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ink-on-slate);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-ivory-ghost:hover {
+  background: rgba(255, 255, 255, 0.13);
+  transform: translateY(-2px);
+}
+
+.horology-dials {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+}
+
+.horology-dial {
+  padding: 1.15rem 0.5rem;
+  border-radius: var(--radius-md);
+  background: rgba(12, 24, 37, 0.58);
+  border: 1px solid rgba(228, 202, 143, 0.42);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.horology-num {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+  font-weight: 600;
+  line-height: 1.05;
+  color: var(--brass-bright);
+}
+
+.horology-unit {
+  margin-top: 0.35rem;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-on-slate-muted);
+}
+
+/* ==========================================================================
+   7. CHAPTER 4: MORNING CELEBRATION 4-CARD CONSERVATORY STRIP
+   ========================================================================== */
+.conservatory-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.step-card {
+  padding: 1.75rem 1.45rem;
+  border-radius: var(--radius-md);
+  background: var(--surface-pure);
+  border: 1px solid var(--rule-brass);
+  border-top: 3px solid var(--royal-slate);
+  box-shadow: var(--shadow-elevated);
+  transition: transform 0.25s var(--ease-couture);
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+}
+
+.step-index {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass-deep);
+  margin-bottom: 0.65rem;
+}
+
+.step-heading {
+  font-family: var(--font-display);
+  font-size: 1.38rem;
+  font-weight: 700;
+  color: var(--royal-slate);
+  margin: 0 0 0.5rem;
+  line-height: 1.22;
+}
+
+.step-text {
+  font-size: 0.9rem;
+  color: var(--ink-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   8. CHAPTER 5: VENUE CONCIERGE — PAARK ROYAL, FARIDABAD
+   ========================================================================== */
+.venue-section {
+  padding-top: 2rem;
+}
+
+.venue-concierge-card {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface-pure);
+  border: 1px solid var(--rule-brass-strong);
+  box-shadow: var(--shadow-elevated);
+}
+
+.venue-illustration-pane {
+  background: var(--bg-porcelain-wash);
+  min-height: 320px;
+}
+
+.venue-illustration-pane img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.venue-address-pane {
+  padding: 2.4rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.venue-badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.28rem 0.8rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-celadon-wash);
+  color: var(--botanical-sage);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.venue-heading {
+  font-family: var(--font-editorial);
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: var(--royal-slate);
+  margin: 0 0 1.15rem;
+  line-height: 1.15;
+}
+
+.venue-detail-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: 1.65rem;
+}
+
+.venue-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 0.92rem;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+}
+
+.venue-row svg {
+  color: var(--brass-deep);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.venue-row strong {
+  color: var(--ink-primary);
+}
+
+.venue-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.copy-status {
+  min-height: 1.25rem;
+  font-size: 0.8rem;
+  color: var(--botanical-sage);
+  font-weight: 600;
+  margin: 0.55rem 0 0;
+}
+
+/* ==========================================================================
+   9. CEREMONIAL RSVP LEDGER & ROYAL FOOTER
+   ========================================================================== */
+.royal-footer {
+  margin-top: 2rem;
+  padding: 4rem 0 3.4rem;
+  background: linear-gradient(180deg, #162a3e 0%, #101f2f 100%);
+  color: var(--ink-on-slate);
+  border-top: 2px solid var(--brass-primary);
+  text-align: center;
+}
+
+.footer-seal-coin {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f3dca8 0%, #c2963d 62%, #875e1d 100%);
+  color: #142433;
+  font-family: var(--font-editorial);
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff5dc;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+}
+
+.footer-closing-verse {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.8vw, 1.55rem);
+  color: #f8f1e1;
+  margin: 0 auto 1.8rem;
+  max-width: 560px;
+}
+
+.rsvp-contact-ledger {
+  max-width: 680px;
+  margin: 0 auto 2rem;
+  padding: 1.65rem 1.5rem;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(228, 202, 143, 0.38);
+}
+
+.rsvp-ledger-heading {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass-bright);
+  margin: 0 0 1rem;
+}
+
+.rsvp-cards-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+  margin-bottom: 1.15rem;
+}
+
+.rsvp-contact-pill {
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-md);
+  background: rgba(15, 30, 45, 0.72);
+  border: 1px solid rgba(228, 202, 143, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.rsvp-contact-pill:hover {
+  border-color: var(--brass-bright);
+  transform: translateY(-2px);
+}
+
+.rsvp-person {
+  font-family: var(--font-display);
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: #fffdf8;
+}
+
+.rsvp-phone {
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--brass-bright);
+}
+
+.rsvp-compliments {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink-on-slate-muted);
+}
+
+.rsvp-compliments strong {
+  color: #fffdf7;
+}
+
+.footer-utility-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  font-size: 0.8rem;
+  color: var(--ink-on-slate-muted);
+}
+
+.footer-utility-links a:hover {
+  color: var(--brass-bright);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   10. RESPONSIVE BREAKPOINTS (MOBILE & TABLET PERFECTION)
+   ========================================================================== */
+@media (max-width: 960px) {
+  .hero-editorial-spread {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+    text-align: center;
+  }
+
+  .hero-copy-col {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .jharokha-showcase {
+    order: 1;
+  }
+
+  .couple-monumental-title {
+    justify-content: center;
+  }
+
+  .hero-action-cluster {
+    justify-content: center;
+  }
+
+  .datum-triptych {
+    width: 100%;
+    max-width: 560px;
+  }
+
+  .lineage-diptych {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+
+  .imperial-horology-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 2.2rem 1.5rem;
+  }
+
+  .horology-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .horology-cta-row {
+    justify-content: center;
+  }
+
+  .conservatory-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .venue-concierge-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero-editorial-spread > *,
+.lineage-diptych > *,
+.imperial-horology-card > *,
+.conservatory-steps-grid > *,
+.venue-concierge-card > * {
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .floating-header {
+    padding: 0 0.65rem;
+  }
+
+  .pill-navbar {
+    padding: 0.42rem 0.55rem 0.42rem 0.65rem;
+    gap: 0.4rem;
+  }
+
+  .crest-coin {
+    width: 32px;
+    height: 32px;
+    font-size: 0.72rem;
+  }
+
+  .crest-names {
+    font-size: 0.92rem;
+  }
+
+  .nav-chip {
+    padding: 0.36rem 0.62rem;
+    font-size: 0.7rem;
+  }
+
+  .melody-pill-btn {
+    padding: 0.38rem 0.7rem;
+    font-size: 0.7rem;
+  }
+
+  .nav-desktop-only {
+    display: none;
+  }
+
+  .crest-meta {
+    display: none;
+  }
+
+  .jharokha-outer-frame {
+    max-width: 330px;
+    padding: 10px;
+  }
+
+  .jharokha-caption {
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .datum-triptych {
+    grid-template-columns: 1fr;
+  }
+
+  .datum-cell {
+    border-right: none;
+    border-bottom: 1px solid var(--rule-brass);
+    padding: 0.8rem 1rem;
+  }
+
+  .datum-cell:last-child {
+    border-bottom: none;
+  }
+
+  .horology-dials {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .conservatory-steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-address-pane {
+    padding: 1.65rem 1.25rem;
+  }
+
+  .rsvp-cards-row {
+    grid-template-columns: 1fr;
+  }
+
+  .jharokha-stamp-badge {
+    right: 6px;
+    bottom: 14px;
+    width: 62px;
+    height: 62px;
+  }
+}

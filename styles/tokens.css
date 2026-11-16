@@ -1,0 +1,60 @@
+/* ==========================================================================
+   COUTURE DESIGN TOKENS — AMAN & ISHU ENGAGEMENT SUITE
+   Theme: "The Royal Conservatory Morning Edition"
+   Palette: Florentine Alabaster, Udaipur Sunlit Porcelain, Botanical Sage-Olive
+            & Burnished 24K Antique Brass (100% distinct luxury daylight aesthetic)
+   ========================================================================== */
+:root {
+  /* Luminous Daylight Paper & Silk Surfaces */
+  --bg-alabaster: hsl(46, 38%, 97%);        /* #FAF8F2 — warm handmade Florentine rag paper */
+  --bg-tussar: hsl(44, 28%, 93%);           /* #F2EFE6 — spun raw tussar silk */
+  --bg-porcelain-wash: hsl(206, 40%, 95%);  /* #ECF3F8 — sunlit Udaipur lake-porcelain mist */
+  --bg-celadon-wash: hsl(150, 24%, 94%);    /* #ECF3EF — morning conservatory sage wash */
+  --surface-card: rgba(255, 254, 250, 0.92);
+  --surface-pure: #FFFEFA;
+
+  /* Royal Slate-Porcelain & Botanical Accents */
+  --royal-slate: hsl(208, 47%, 17%);        /* #172B3F — deep Imperial Wedgewood / Peacock Slate */
+  --royal-slate-mid: hsl(207, 41%, 24%);    /* #243E56 — French linen couture envelope blue */
+  --royal-slate-soft: hsl(206, 35%, 35%);   /* #3A5C78 — porcelain Delft blue accent */
+  --botanical-sage: hsl(153, 24%, 32%);     /* #3E6552 — cypress & olive-leaf green */
+  --botanical-sage-soft: hsla(153, 24%, 32%, 0.12);
+
+  /* Burnished 24K Antique Brass & Wax Seal Gold */
+  --brass-bright: hsl(43, 66%, 73%);        /* #E4CA8F — sunlit 24K gold leaf highlight */
+  --brass-primary: hsl(40, 52%, 50%);       /* #C2963D — burnished antique brass */
+  --brass-deep: hsl(38, 58%, 36%);          /* #916626 — deep engraved bronze-brass */
+  --brass-tint: hsla(40, 52%, 50%, 0.14);
+
+  /* Typography Ink (Crisp midnight-slate — zero harsh pure black) */
+  --ink-primary: hsl(209, 44%, 14%);        /* #142433 — deep architectural porcelain-ink */
+  --ink-secondary: hsl(208, 25%, 30%);      /* #394D5F — refined slate body ink */
+  --ink-muted: hsl(206, 17%, 44%);          /* #5D7183 — tracked small-caps ink */
+  --ink-on-slate: hsl(45, 48%, 96%);        /* #FAF6EE — luminous alabaster on royal slate */
+  --ink-on-slate-muted: hsla(44, 38%, 88%, 0.78);
+
+  /* Filigree Hairlines & Architectural Shadows */
+  --rule-brass: hsla(40, 50%, 46%, 0.28);
+  --rule-brass-strong: hsla(40, 54%, 46%, 0.54);
+  --rule-slate: hsla(208, 36%, 24%, 0.14);
+  --shadow-elevated: 0 20px 52px -18px rgba(20, 36, 51, 0.13);
+  --shadow-jharokha: 0 30px 68px -20px rgba(23, 43, 63, 0.22);
+  --shadow-envelope: 0 36px 80px -18px rgba(18, 34, 50, 0.32);
+
+  /* Self-Hosted Couture Typography */
+  --font-editorial: "Bodoni Moda", "Cormorant Garamond", Georgia, serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-hindi: "Tiro Devanagari Hindi", "Cormorant Garamond", serif;
+
+  /* Layout & Radii */
+  --container-max: 1140px;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-pill: 999px;
+
+  /* Bespoke Motion Curves */
+  --ease-couture: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-seal: cubic-bezier(0.34, 1.3, 0.64, 1);
+}
